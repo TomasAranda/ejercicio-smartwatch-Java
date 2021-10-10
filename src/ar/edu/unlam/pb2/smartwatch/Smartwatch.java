@@ -8,9 +8,9 @@ abstract public class Smartwatch {
 	private Integer edadUsuario;
 	private Integer pasosDiariosPromedioUsuario = 0;
 	
-	private Integer tiempoEnSegundosTranscurridos = 0;
-	private Integer distanciaEnMetrosRealizados = 0;
-	private Integer pasosRealizados = 0;
+	protected Integer tiempoEnSegundosTranscurridos = 0;
+	protected Integer distanciaEnMetrosRealizados = 0;
+	protected Integer pasosRealizados = 0;
 
 	public Smartwatch(String nombreUsuario, Integer edadUsuario,
 			Double pesoUsuario, Double alturaUsuario) {
@@ -26,10 +26,10 @@ abstract public class Smartwatch {
 			tiempoEnSegundosTranscurridos++;
 			break;
 		case PASO:
-			distanciaEnMetrosRealizados++;
+			pasosRealizados++;
 			break;
 		case DISTANCIA:
-			pasosRealizados++;
+			distanciaEnMetrosRealizados++;
 			break;
 		default:
 			break;

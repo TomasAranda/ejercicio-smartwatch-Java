@@ -4,12 +4,21 @@ public class SmartwatchCarrera extends Smartwatch {
 
 	public SmartwatchCarrera(String nombreUsuario, Integer edadUsuario, Double pesoUsuario, Double alturaUsuario) {
 		super(nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Double getDistanciaEnKilometros() {
-		// TODO Auto-generated method stub
-		return null;
+		return (double) (distanciaEnMetrosRealizados / 1000);
+	}
+
+	public Double getRitmoDeCarrera() {
+		Double resultado = (double) (tiempoEnSegundosTranscurridos / 60.0);
+		Double distanciaEnKilometros = (double) (distanciaEnMetrosRealizados / 1000.0);
+		resultado /= distanciaEnKilometros;
+		return resultado;
+	}
+
+	public Integer getTiempoEnSegundosTranscurridos() {
+		return tiempoEnSegundosTranscurridos;
 	}
 
 }
