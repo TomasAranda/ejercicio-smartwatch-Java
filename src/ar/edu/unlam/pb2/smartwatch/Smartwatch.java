@@ -43,7 +43,6 @@ abstract public class Smartwatch {
 		return pasosRealizados;
 	}
 	
-	// TODO: AGREGAR METODOS QUE DEVUELVEN DISTANCIA Y VELOCIDAD (SOBREESCRIBIRLOS EN LAS CLASES HIJAS PARA QUE LO DEVUELVAN EN LA UNIDAD CORRECTA)
 	public Double getDistanciaRealizada() {
 		// (EN METROS)
 		return (double) distanciaRealizada;

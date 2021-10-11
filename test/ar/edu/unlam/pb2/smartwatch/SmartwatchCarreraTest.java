@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class SmartwatchTest {
+class SmartwatchCarreraTest {
 
 	@Test
 	void queSeObtengaLadistanciaRecorridaEnKilometros() {
@@ -16,8 +16,8 @@ class SmartwatchTest {
 			sw.enviarPulso(TipoDePulso.DISTANCIA_EN_METROS);
 		}
 		
-		Double valorEsperado = (double) (cantidadDeMetrosDePrueba / 1000);
-		Double valorObtenido = sw.getDistanciaEnKilometros() / 1000;
+		Double valorEsperado = cantidadDeMetrosDePrueba / 1000.0;
+		Double valorObtenido = sw.getDistanciaRealizada();
 		
 		assertEquals(valorEsperado, valorObtenido);
 	}
@@ -31,7 +31,7 @@ class SmartwatchTest {
 			sw.enviarPulso(TipoDePulso.TIEMPO_EN_SEGUNDOS);
 		}
 		
-		Integer valorObtenido = sw.getTiempoEnSegundosTranscurridos();
+		Integer valorObtenido = sw.getTiempoTranscurrido();
 		
 		assertEquals(cantidadDeSegundosDePrueba, valorObtenido);
 	}
@@ -50,7 +50,7 @@ class SmartwatchTest {
 		}
 		
 		Double valorObtenido = sw.getRitmoDeCarrera();
-		Double valorEsperado = (double) ((cantidadDeSegundosDePrueba / 60.0) / (cantidadDeMetrosDePrueba / 1000.0));
+		Double valorEsperado = (cantidadDeSegundosDePrueba / 60.0) / (cantidadDeMetrosDePrueba / 1000.0);
 		
 		assertEquals(valorEsperado, valorObtenido);
 	}

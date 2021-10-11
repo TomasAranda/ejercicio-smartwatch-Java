@@ -2,7 +2,6 @@ package ar.edu.unlam.pb2.smartwatch;
 
 public class SmartwatchCiclismo extends Smartwatch {
 	private Integer cadenciaEnRPM = 0;
-	
 
 	public SmartwatchCiclismo(String nombreUsuario, Integer edadUsuario, Double pesoUsuario, Double alturaUsuario) {
 		super(nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario);
