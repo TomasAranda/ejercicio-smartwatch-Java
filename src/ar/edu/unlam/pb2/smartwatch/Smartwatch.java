@@ -8,9 +8,9 @@ abstract public class Smartwatch {
 	private Integer edadUsuario;
 	private Integer pasosDiariosPromedioUsuario = 0;
 	
-	private Integer tiempoEnSegundosTranscurridos = 0;
-	private Integer distanciaEnMetrosRealizados = 0;
-	private Integer pasosRealizados = 0;
+	protected Integer tiempoTranscurrido = 0;
+	protected Integer distanciaRealizada = 0;
+	protected Integer pasosRealizados = 0;
 
 	public Smartwatch(String nombreUsuario, Integer edadUsuario,
 			Double pesoUsuario, Double alturaUsuario) {
@@ -22,56 +22,35 @@ abstract public class Smartwatch {
 	
 	public void enviarPulso(TipoDePulso pulso) {
 		switch (pulso) {
-		case TIEMPO:
-			tiempoEnSegundosTranscurridos++;
+		case TIEMPO_EN_SEGUNDOS:
+			tiempoTranscurrido++;
 			break;
 		case PASO:
-			distanciaEnMetrosRealizados++;
-			break;
-		case DISTANCIA:
 			pasosRealizados++;
+			break;
+		case DISTANCIA_EN_METROS:
+			distanciaRealizada++;
 			break;
 		default:
 			break;
 		}
 	}
-	
-	public String getNombreUsuario() {
-		return nombreUsuario;
-	}
-	
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
-	}
-	
-	public Integer getEdadUsuario() {
-		return edadUsuario;
-	}
-	
-	public void setEdadUsuario(Integer edadUsuario) {
-		this.edadUsuario = edadUsuario;
-	}
-	
+		
 	public Integer getPasosDiariosPromedioUsuario() {
-		if(tiempoEnSegundosTranscurridos > SEGUNDOS_EN_UN_DIA) {
-			return (SEGUNDOS_EN_UN_DIA * pasosRealizados / tiempoEnSegundosTranscurridos);   
+		if(tiempoTranscurrido > SEGUNDOS_EN_UN_DIA) {
+			return (SEGUNDOS_EN_UN_DIA * pasosRealizados / tiempoTranscurrido);   
 		}
 		return pasosRealizados;
 	}
 	
-	public Double getPesoUsuario() {
-		return pesoUsuario;
+	// TODO: AGREGAR METODOS QUE DEVUELVEN DISTANCIA Y VELOCIDAD (SOBREESCRIBIRLOS EN LAS CLASES HIJAS PARA QUE LO DEVUELVAN EN LA UNIDAD CORRECTA)
+	public Double getDistanciaRealizada() {
+		// (EN METROS)
+		return (double) distanciaRealizada;
 	}
-	
-	public void setPesoUsuario(Double pesoUsuario) {
-		this.pesoUsuario = pesoUsuario;
-	}
-	
-	public Double getAlturaUsuario() {
-		return alturaUsuario;
-	}
-	
-	public void setAlturaUsuario(Double alturaUsuario) {
-		this.alturaUsuario = alturaUsuario;
+
+	public Integer getTiempoTranscurrido() {
+		// (EN SEGUNDOS)
+		return tiempoTranscurrido;
 	}
 }
