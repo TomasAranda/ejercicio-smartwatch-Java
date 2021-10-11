@@ -1,5 +1,5 @@
 package ar.edu.unlam.pb2.smartwatch;
 
 public enum TipoDePulso {
-	TIEMPO, DISTANCIA, PASO
+	TIEMPO_EN_SEGUNDOS, DISTANCIA_EN_METROS, PASO;
 }

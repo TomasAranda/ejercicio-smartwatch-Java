@@ -6,19 +6,17 @@ public class SmartwatchCarrera extends Smartwatch {
 		super(nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario);
 	}
 
-	public Double getDistanciaEnKilometros() {
-		return (double) (distanciaEnMetrosRealizados / 1000);
+	@Override
+	public Double getDistanciaRealizada() {
+		// (EN KILOMETROS)
+		return super.getDistanciaRealizada() / 1000.0;
 	}
 
 	public Double getRitmoDeCarrera() {
-		Double resultado = (double) (tiempoEnSegundosTranscurridos / 60.0);
-		Double distanciaEnKilometros = (double) (distanciaEnMetrosRealizados / 1000.0);
+		Double resultado = (double) (tiempoTranscurrido / 60.0);
+		Double distanciaEnKilometros = (double) (distanciaRealizada / 1000.0);
 		resultado /= distanciaEnKilometros;
 		return resultado;
-	}
-
-	public Integer getTiempoEnSegundosTranscurridos() {
-		return tiempoEnSegundosTranscurridos;
 	}
 
 }
